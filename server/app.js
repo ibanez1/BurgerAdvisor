@@ -15,7 +15,7 @@ const cors = require('cors');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/server", { useMongoClient: true })
+  .connect(process.env.MONGO_URL, { useMongoClient: true })
   .then(() => {
     console.log("Connected to Mongo!");
   })
@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    secret: "our-passport-local-strategy-app",
+    secret: "BurgerAdvisor",
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({
