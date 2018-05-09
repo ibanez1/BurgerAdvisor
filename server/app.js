@@ -84,5 +84,18 @@ app.use("/", index);
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
+const Burger = require('./models/Burger');
+app.use('/api/burger', require('./routes/crud')(Burger));
+
+const Opinion = require('./models/Opinion');
+app.use('/api/opinion', require('./routes/extendedOpinion'));
+
+const Favorite = require('./models/Favorite');
+app.use('/api/favorite', require('./routes/extendedFavorite'));
+
+const Ratings = require('./models/Rating');
+app.use('/api/rating', require('./routes/extendedRating'));
+
+
 
 module.exports = app;
