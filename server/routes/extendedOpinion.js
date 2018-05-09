@@ -20,7 +20,9 @@ router.post('/burger/:id', (req,res, next) => {
   req.body.user = req.user._id
   user = req.body.user;
   burger = req.params.id;
-  Opinion.create({user, burger})
+  text = req.body.text;
+  console.log(req.body);
+  Opinion.create({user, burger, text})
   .then(opinion => res.json(opinion))
   .catch(e => next(e));
 });

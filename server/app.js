@@ -96,6 +96,7 @@ app.use('/api/favorite', require('./routes/extendedFavorite'));
 const Ratings = require('./models/Rating');
 app.use('/api/rating', require('./routes/extendedRating'));
 
-
+const Restaurant = require('./models/Restaurant');
+app.use('/api/restaurant', require('./routes/extendedRestaurant'));
 
 module.exports = app;
