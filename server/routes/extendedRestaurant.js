@@ -7,7 +7,7 @@ const router = crud(Restaurant);
 router.post('/new', (req,res, next) => {
   req.body.user = req.user._id
   user = req.body.user;
-  title = req.body.productTitle;
+  title = req.body.title;
   /* imgName = req.file.originalname;
   imgPath = req.file.url; */
   imgName = req.body.imgName;
@@ -16,8 +16,9 @@ router.post('/new', (req,res, next) => {
     type: "Point",
     coordinates: [req.body.longitude, req.body.latitude]
   }
-  console.log("holaaaaaaa")
+  console.log("-----------------");
   obj = {user, title, imgName, imgPath, APIlocation: location}
+  console.log(obj);
   Restaurant.create(obj)
   .then(restaurant => res.json(restaurant))
   .catch(e => next(e));
