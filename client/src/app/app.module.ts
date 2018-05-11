@@ -3,21 +3,29 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { RouterModule } from '@angular/router';
+import {routes} from './routes';
+
 import { AppComponent } from './app.component';
 import { SessionService } from './services/session.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 
+import { BurgerListComponent } from './burger-list/burger-list.component';
+import { BurgerService } from './services/burger.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    BurgerListComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [SessionService],
+  providers: [SessionService, BurgerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

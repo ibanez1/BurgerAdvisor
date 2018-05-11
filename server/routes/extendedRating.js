@@ -8,4 +8,16 @@ router.get('/burger/:id', (req,res) => {
     return res.json(ratings);
   })
 })
+
+router.post('/burger/:id', (req,res) => {
+  req.body.user = req.user._id
+  user = req.body.user;
+  burger = req.params.id;
+  rate = req.body.rate;
+  Rating.create({user, burger, rate})
+  .then(rate => res.json(rate))
+  .catch(e => next(e));
+  
+});
+
 module.exports = router;

@@ -1,8 +1,3 @@
-/* APItypePoint: String,
-APIlocation: { type: { type: String }, coordinates: [Number] }
-
-restaurantSchema.index({ location: '2dsphere' }); */
-
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const Schema = mongoose.Schema;

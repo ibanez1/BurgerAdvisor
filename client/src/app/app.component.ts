@@ -14,7 +14,7 @@ export class AppComponent {
       if(user){
         this.title = `HOLA ${user.username}`;
       }else{
-        this.title = "PLIZ LOGIARSE!";
+        this.title = "Login!";
       }
     })
   }

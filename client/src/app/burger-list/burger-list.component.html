@@ -1,0 +1,14 @@
+<p>
+  burger-list works!
+</p>
+
+
+<div>
+  <div class="burger" *ngFor="let burger of burgers">
+    <a [routerLink]="['/burger',burger._id]">
+      <img [src]="burger.imgPath" width=100/>
+    </a>
+    <h3> {{ burger.title }} </h3>
+    <p> {{ burger.description }} </p>
+  </div>
+</div>
