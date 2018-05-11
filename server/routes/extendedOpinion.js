@@ -20,9 +20,9 @@ router.get('/burger/:id', (req,res) => {
 });
 
 router.post('/burger/:id', (req,res, next) => {
-  console.log("HOLA JESUS");
-  console.log(req.user)
-  
+  console.log("HOLA");
+  console.log(req.body.user)
+  let user = req.body.user;
   let burger = req.params.id;
   let text = req.body.text;
   console.log(text)

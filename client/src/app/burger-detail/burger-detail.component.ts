@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import {Observable} from 'rxjs/Observable';
 import { BurgerService } from '../services/burger.service';
 import { OpinionService } from '../services/opinion.service';
+import { SessionService } from '../services/session.service'
 
 @Component({
   selector: 'app-burger-detail',
@@ -18,7 +19,8 @@ export class BurgerDetailComponent implements OnInit {
     route: ActivatedRoute,
     public router: Router,
     private burgerService: BurgerService,
-    private opinionService: OpinionService
+    private opinionService: OpinionService,
+    public session: SessionService
   ) { 
     route.params.subscribe(params => {
       burgerService.get(params.id).subscribe(burger => {
@@ -40,8 +42,8 @@ export class BurgerDetailComponent implements OnInit {
 
 
   saveOpinion() {
-    console.log(this.opinion);
-    this.opinionService.saveOpinion(this.burger._id,this.opinion).subscribe(() =>{
+    console.log(this.session.user._id);
+    this.opinionService.saveOpinion(this.burger._id,this.opinion, this.session.user._id).subscribe(() =>{
       this.refreshOpinions();
       
     });
