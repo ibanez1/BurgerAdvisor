@@ -17,7 +17,7 @@ export class BurgerListComponent implements OnInit {
 
   ngOnInit() {
     this.burgers$ = this.burgerService.getList();
-    this.burgerService.getList().subscribe( burgers => {this.burgers = burgers,console.log(burgers)});
+    this.burgerService.getList().subscribe( burgers => {this.burgers = burgers});
   }
 
 }

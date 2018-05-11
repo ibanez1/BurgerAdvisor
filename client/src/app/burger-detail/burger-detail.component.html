@@ -1,0 +1,24 @@
+<p>
+  burger-detail works!
+</p>
+<a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="burger">
+  <div class="burger-detail">
+    <img height="300" [src]="burger.imgPath" />
+  </div>
+
+  <div class="burger-info">
+    <h2> {{ burger.title }}&nbsp;</h2>
+    <h3> {{ burger.description }} </h3>
+    <p> {{ burger.price }} </p>
+
+    <div *ngIf="burger.restaurant">
+      <h4> Restaurant </h4>
+      {{ burger.restaurant&nbsp;}}
+
+
+    </div>
+  </div>
+
+</div>

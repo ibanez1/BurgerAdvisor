@@ -12,13 +12,15 @@ import { LoginFormComponent } from './login-form/login-form.component';
 
 import { BurgerListComponent } from './burger-list/burger-list.component';
 import { BurgerService } from './services/burger.service';
+import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     BurgerListComponent,
-  ],
+    BurgerDetailComponent
+],
   imports: [
     BrowserModule,
     FormsModule,
