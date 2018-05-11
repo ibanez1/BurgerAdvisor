@@ -13,12 +13,25 @@
     <h3> {{ burger.description }} </h3>
     <p> {{ burger.price }} </p>
 
-    <div *ngIf="burger.restaurant">
+    
       <h4> Restaurant </h4>
       {{ burger.restaurant&nbsp;}}
 
 
-    </div>
+    
+  </div>
+  <ul *ngFor="let opinion of opinions">
+    <li>{{opinion.text}}</li>
+  </ul>
+
+  <!-- <button (click)="deletePhone()"> Delete </button> -->
+
+  <div>
+    <input [(ngModel)]="opinion">
+    <button (click)="saveOpinion()"> Save Opinion </button>
   </div>
 
 </div>
+
+
+

@@ -10,8 +10,7 @@ router.get('/burger/:id', (req,res) => {
 })
 
 router.post('/burger/:id', (req,res) => {
-  req.body.user = req.user._id
-  user = req.body.user;
+  user = req.user._id
   burger = req.params.id;
   rate = req.body.rate;
   Rating.create({user, burger, rate})

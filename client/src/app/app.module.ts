@@ -13,6 +13,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { BurgerListComponent } from './burger-list/burger-list.component';
 import { BurgerService } from './services/burger.service';
 import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
+import { OpinionService } from './services/opinion.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, BurgerService],
+  providers: [SessionService, BurgerService, OpinionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

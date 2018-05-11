@@ -1,6 +1,9 @@
 const crud = require('./crud');
 const Opinion = require('../models/Opinion');
+const session = require('express-session');
+const passport = require('passport');
 const _ = require("lodash");
+
 
 const router = crud(Opinion);
 
@@ -17,11 +20,12 @@ router.get('/burger/:id', (req,res) => {
 });
 
 router.post('/burger/:id', (req,res, next) => {
-  req.body.user = req.user._id
-  user = req.body.user;
-  burger = req.params.id;
-  text = req.body.text;
-  console.log(req.body);
+  console.log("HOLA JESUS");
+  console.log(req.user)
+  
+  let burger = req.params.id;
+  let text = req.body.text;
+  console.log(text)
   Opinion.create({user, burger, text})
   .then(opinion => res.json(opinion))
   .catch(e => next(e));
