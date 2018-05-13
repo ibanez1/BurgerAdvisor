@@ -2,9 +2,15 @@
   burger-list works!
 </p>
 
+<div>
+    <label for="burger_title"> Search thing: </label>
+    <input id="burger_title" placeholder="burger name"
+            type="text" [(ngModel)]="pattern">
+<div>
 
 <div>
-  <div class="burger" *ngFor="let burger of burgers">
+  <div class="burger" *ngFor="let burger of burgers | searchBurger:'title': pattern">
+
     <a [routerLink]="['/burger',burger._id]">
       <img [src]="burger.imgPath" width=100/>
     </a>

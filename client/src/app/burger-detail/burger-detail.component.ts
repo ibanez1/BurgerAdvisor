@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import {Observable} from 'rxjs/Observable';
 import { BurgerService } from '../services/burger.service';
@@ -38,6 +38,13 @@ export class BurgerDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  refreshBurger(){
+    this.burgerService.get(this.burger._id).subscribe(burger => {
+      this.burger = burger;
+    })
+  }
+ 
   refreshOpinions(){
     this.opinionService.getOpinions(this.burger._id).subscribe(opinions => {
       this.opinions = opinions; 
@@ -62,6 +69,7 @@ export class BurgerDetailComponent implements OnInit {
     this.ratingService.saveRating(this.burger._id, this.rating, this.session.user._id)
     .subscribe(()=>{
       this.refreshRatings();
+      this.refreshBurger();
     })
   }
 }
