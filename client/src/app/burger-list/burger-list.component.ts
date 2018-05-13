@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
 import { BurgerService } from '../services/burger.service';
@@ -13,6 +13,7 @@ export class BurgerListComponent implements OnInit {
   burgers:Array<any> = [];
   constructor(public burgerService:BurgerService) {
     
+
   }
 
   ngOnInit() {
@@ -20,4 +21,5 @@ export class BurgerListComponent implements OnInit {
     this.burgerService.getList().subscribe( burgers => {this.burgers = burgers});
   }
 
+  
 }

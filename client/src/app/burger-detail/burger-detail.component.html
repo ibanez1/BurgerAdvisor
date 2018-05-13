@@ -12,14 +12,22 @@
     <h2> {{ burger.title }}&nbsp;</h2>
     <h3> {{ burger.description }} </h3>
     <p> {{ burger.price }} </p>
+    <p> {{ burger.rates | averageRating }}</p>
 
     
       <h4> Restaurant </h4>
       {{ burger.restaurant&nbsp;}}
-
-
-    
   </div>
+  <ul *ngFor="let rate of ratings">
+    <li> {{rate.rate}}</li>
+  </ul>
+
+  <div>
+    <input type= "number" [(ngModel)]="rating">
+    <button (click)="saveRating()"> Save Rating </button>
+  </div>
+
+
   <ul *ngFor="let opinion of opinions">
     <li>{{opinion.text}}</li>
   </ul>

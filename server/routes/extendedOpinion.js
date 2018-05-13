@@ -20,12 +20,9 @@ router.get('/burger/:id', (req,res) => {
 });
 
 router.post('/burger/:id', (req,res, next) => {
-  console.log("HOLA");
-  console.log(req.body.user)
   let user = req.body.user;
   let burger = req.params.id;
   let text = req.body.text;
-  console.log(text)
   Opinion.create({user, burger, text})
   .then(opinion => res.json(opinion))
   .catch(e => next(e));

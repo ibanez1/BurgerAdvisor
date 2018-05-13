@@ -14,13 +14,17 @@ import { BurgerListComponent } from './burger-list/burger-list.component';
 import { BurgerService } from './services/burger.service';
 import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
 import { OpinionService } from './services/opinion.service';
+import { RatingService } from './services/rating.service';
+import { AverageRatingPipe } from './pipes/averageRating.pipe'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     BurgerListComponent,
-    BurgerDetailComponent
+    BurgerDetailComponent,
+    AverageRatingPipe
 ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { OpinionService } from './services/opinion.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, BurgerService, OpinionService],
+  providers: [SessionService, BurgerService, OpinionService, RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
