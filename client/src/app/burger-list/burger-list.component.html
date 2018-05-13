@@ -3,13 +3,16 @@
 </p>
 
 <div>
-    <label for="burger_title"> Search thing: </label>
+    <label for="burger_title"> Search Burger: </label>
     <input id="burger_title" placeholder="burger name"
             type="text" [(ngModel)]="pattern">
 <div>
 
+    <a href (click)="sortTable('price')">Sort by Price!</a>
+    <a href (click)="sortTable('rates')">Sort by Rate!</a>
+
 <div>
-  <div class="burger" *ngFor="let burger of burgers | searchBurger:'title': pattern">
+  <div class="burger" *ngFor="let burger of burgers | searchBurger:'title': pattern | sortBurgers:path:order">
 
     <a [routerLink]="['/burger',burger._id]">
       <img [src]="burger.imgPath" width=100/>

@@ -17,6 +17,7 @@ import { OpinionService } from './services/opinion.service';
 import { RatingService } from './services/rating.service';
 import { AverageRatingPipe } from './pipes/averageRating.pipe';
 import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
+import { SortBurgersPipe } from './pipes/sortBurgers.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
     BurgerListComponent,
     BurgerDetailComponent,
     AverageRatingPipe,
-    SearchBurgerPipe
+    SearchBurgerPipe,
+    SortBurgersPipe
 ],
   imports: [
     BrowserModule,
