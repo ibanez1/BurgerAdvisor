@@ -10,7 +10,7 @@ const burgerSchema = new Schema(
     user: { type: Schema.Types.ObjectId, ref: "User" },
     imgName: String,
     imgPath: String,
-    restaurant: { type: Schema.Types.ObjectId, ref: "Restaurant" },
+    restaurants: Array,
     rates: Array
     
   },
