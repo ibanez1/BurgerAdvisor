@@ -49,6 +49,7 @@ export class BurgerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   refreshBurger(){
