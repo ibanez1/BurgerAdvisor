@@ -5,6 +5,7 @@ import { BurgerService } from '../services/burger.service';
 import { OpinionService } from '../services/opinion.service';
 import { RatingService } from '../services/rating.service';
 import { SessionService } from '../services/session.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-burger-detail',
@@ -13,6 +14,9 @@ import { SessionService } from '../services/session.service';
   
 })
 export class BurgerDetailComponent implements OnInit {
+  lat:any;
+  lng:any;
+
   burger:any;
   opinion: string;
   opinions: Array<object>;
@@ -34,6 +38,14 @@ export class BurgerDetailComponent implements OnInit {
         this.refreshRatings();
       });
     });
+
+    if (navigator)
+    {
+    navigator.geolocation.getCurrentPosition( pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+      });
+    }
   }
 
   ngOnInit() {

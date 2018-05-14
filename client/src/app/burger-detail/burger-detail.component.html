@@ -13,13 +13,17 @@
     <h3> {{ burger.description }} </h3>
     <p> {{ burger.price }} </p>
     <p> {{ burger.rates | averageRating }}</p>
+    
 
     
-      <h4> Restaurant </h4>
-      {{ burger.restaurant&nbsp;}}
+      <h4> Restaurants </h4>
+      <p> {{ burger.restaurants }}</p>
+      <p>add new Restaurant!</p>
+
+
   </div>
-  <ul *ngFor="let rate of ratings">
-    <li> {{rate.rate}}</li>
+  <ul *ngFor="let restaurant of restaurants">
+    <li> {{restaurant.title}}</li>
   </ul>
 
   <div>
@@ -40,6 +44,14 @@
   </div>
 
 </div>
+
+<h1>{{ title }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 
 
 

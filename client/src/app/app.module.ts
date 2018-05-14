@@ -19,6 +19,8 @@ import { AverageRatingPipe } from './pipes/averageRating.pipe';
 import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
 import { SortBurgersPipe } from './pipes/sortBurgers.pipe';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -28,13 +30,17 @@ import { SortBurgersPipe } from './pipes/sortBurgers.pipe';
     BurgerDetailComponent,
     AverageRatingPipe,
     SearchBurgerPipe,
-    SortBurgersPipe
+    SortBurgersPipe,
+    
 ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyALlKLsCDkTTqalmc97qDmcqYMuARCu7Pc'
+    })
   ],
   providers: [SessionService, BurgerService, OpinionService, RatingService],
   bootstrap: [AppComponent]
