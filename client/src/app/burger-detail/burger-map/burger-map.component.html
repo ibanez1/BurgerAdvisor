@@ -1,0 +1,31 @@
+<p>
+  burger-map works!
+</p>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+<div class="container">
+    <div class="form-group">
+   <input  [(ngModel)]="place" type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
+    </div>
+    <button id="Settings" class="toggle-button controls button" (click)="onClickMe()" (keydown)="keyDownFunction($event)"></button>
+    {{place}}
+
+</div>
+
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13" >
+
+<agm-marker [latitude]="lat" [longitude]="lng"
+  
+  ></agm-marker>
+    
+</agm-map>
+
+
+
+
+
+
+

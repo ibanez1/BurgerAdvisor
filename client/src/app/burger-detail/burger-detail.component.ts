@@ -6,6 +6,8 @@ import { OpinionService } from '../services/opinion.service';
 import { RatingService } from '../services/rating.service';
 import { SessionService } from '../services/session.service';
 import {HttpClient} from '@angular/common/http';
+import { BurgerMapComponent } from './burger-map/burger-map.component'
+
 
 @Component({
   selector: 'app-burger-detail',
@@ -14,8 +16,6 @@ import {HttpClient} from '@angular/common/http';
   
 })
 export class BurgerDetailComponent implements OnInit {
-  lat:any;
-  lng:any;
 
   burger:any;
   opinion: string;
@@ -38,14 +38,6 @@ export class BurgerDetailComponent implements OnInit {
         this.refreshRatings();
       });
     });
-
-    if (navigator)
-    {
-    navigator.geolocation.getCurrentPosition( pos => {
-        this.lng = +pos.coords.longitude;
-        this.lat = +pos.coords.latitude;
-      });
-    }
   }
 
   ngOnInit() {
