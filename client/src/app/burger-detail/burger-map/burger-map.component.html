@@ -12,15 +12,27 @@
     <button id="Settings" class="toggle-button controls button" (click)="onClickMe()" (keydown)="keyDownFunction($event)"></button>
     {{place}}
 
-</div>
+</div> 
 
 
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13" >
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12" (ngModel)="coordinates" >
 
 <agm-marker [latitude]="lat" [longitude]="lng"
-  
+
+
   ></agm-marker>
-    
+
+  <agm-marker  *ngFor="let data of mcDonalds; let i = index" [latitude]="data.lat" 
+  [longitude]="data.long" 
+  [iconUrl]="'http://res.cloudinary.com/dwxwn9y48/image/upload/v1526426891/logo_mac.png'"> </agm-marker>
+
+  <agm-marker  *ngFor="let data of goikoGrill; let i = index" [latitude]="data.lat" 
+  [longitude]="data.long" 
+  [iconUrl]="'http://res.cloudinary.com/dwxwn9y48/image/upload/v1526427179/goiko_icon.png'"> </agm-marker>
+
+  <agm-marker  *ngFor="let data of fiveGuys; let i = index" [latitude]="data.lat" 
+  [longitude]="data.long" 
+  [iconUrl]="'http://res.cloudinary.com/dwxwn9y48/image/upload/v1526427689/five_guys_icon.png'"> </agm-marker>
 </agm-map>
 
 

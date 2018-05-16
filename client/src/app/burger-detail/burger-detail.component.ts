@@ -22,6 +22,9 @@ export class BurgerDetailComponent implements OnInit {
   opinions: Array<object>;
   rating: string;
   ratings: Array<object>;
+  lat: number ;
+  lng: number ;
+  
 
   constructor(
     route: ActivatedRoute,

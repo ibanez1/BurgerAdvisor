@@ -21,6 +21,10 @@ import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
 import { SortBurgersPipe } from './pipes/sortBurgers.pipe';
 import { AgmCoreModule } from '@agm/core';
 
+import { JsonpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ import { AgmCoreModule } from '@agm/core';
 ],
   imports: [
     BrowserModule,
+    JsonpModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
