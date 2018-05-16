@@ -16,7 +16,11 @@
     </ul>
 
     <ul *ngFor="let favorite of favorites">
-        <li>{{favorite._id}}</li>
+        <li>{{favorite.burger.title}}</li>
+        <img [src]="favorite.burger.imgPath" width=100/>
+        
+        {{favorite.burger.restaurant}}
+       <!--  <img [src]="burger.imgPath" width=100/> -->
     </ul>
   
     <!-- <button (click)="deletePhone()"> Delete </button> -->
