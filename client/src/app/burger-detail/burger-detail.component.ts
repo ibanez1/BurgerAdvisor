@@ -85,7 +85,7 @@ export class BurgerDetailComponent implements OnInit {
   saveFavorite(){
     this.favoriteService.saveFavorite(this.burger._id, this.session.user._id)
     .subscribe(()=>{
-      this.router.navigate(["/"]);
+      this.refreshBurger();
       })
 
 }

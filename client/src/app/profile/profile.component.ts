@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import {Observable} from 'rxjs/Observable';
 
@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProfileComponent implements OnInit {
 
   user:any;
-  opinion: string;
+  opinion: any;
   opinions: Array<object>;
   favorite: any;
   favorites: Array<object>;
@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit {
     //route.params.subscribe(params => {
       session.isLoggedIn().subscribe(u => {
         this.user = u
-        console.log(this.user)
         this.refreshUserFavorites();
         this.refreshUserOpinions();
         this.refreshUserBurgers();
@@ -49,24 +48,25 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-deleteFavorite() {
+deleteFavorite(favorite) {
   console.log("DELETED FAVORITE");
-  this.userService.removeFavorite(this.favorite._id).subscribe(() => {
-    this.router.navigate(["/"]);
+  this.userService.removeFavorite(favorite._id).subscribe(() => {
+    this.refreshUserFavorites();
+    this.router.navigate(["/profile"]);
   });
 }
 
 refreshUserFavorites(){
   this.userService.getFavorites(this.user._id).subscribe(favorites => {
-    console.log(favorites)
     this.favorites = favorites;
   })
 }
 
-deleteOpinion() {
-  console.log("DELETED COMMENT");
-  this.userService.removeOpinion(this.comment._id).subscribe(() => {
-    this.router.navigate(["/"]);
+deleteOpinion(opinion) {
+  console.log("DELETED OPINION");
+  this.userService.removeOpinion(opinion._id).subscribe(() => {
+    this.refreshUserOpinions()
+    this.router.navigate(["/profile"]);
   });
 }
 
@@ -78,8 +78,8 @@ refreshUserOpinions(){
 
 deleteBurger() {
   console.log("DELETED BURGER");
-  this.userService.removeBurger(this.burger._id).subscribe(() => {
-    this.router.navigate(["/"]);
+  this.userService.removeBurger(this.burger._id).subscribe((burger) => {
+    this.burger = burger;
   });
 }
 

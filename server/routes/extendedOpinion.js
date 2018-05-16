@@ -8,13 +8,16 @@ const _ = require("lodash");
 const router = crud(Opinion);
 
 router.get('/user/:id', (req,res) => {
-  Opinion.find({user:req.params.id}).then(opinions => {
+  Opinion.find({user:req.params.id})
+  .populate('burger')
+  .then(opinions => {
     return res.json(opinions);
   })
 });
 
 router.get('/burger/:id', (req,res) => {
-  Opinion.find({burger:req.params.id}).then(opinions => {
+  Opinion.find({burger:req.params.id})
+  .then(opinions => {
     return res.json(opinions);
   })
 });

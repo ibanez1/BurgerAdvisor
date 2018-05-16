@@ -19,6 +19,7 @@ import { RatingService } from './services/rating.service';
 import { FavoriteService } from './services/favorite.service';
 import { UserService } from './services/user.service';
 import { ProfileComponent } from './profile/profile.component';
+import { NewBurgerComponent } from './profile/new-burger/new-burger.component'
 
 import { AverageRatingPipe } from './pipes/averageRating.pipe';
 import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
@@ -41,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AverageRatingPipe,
     SearchBurgerPipe,
     SortBurgersPipe,
-    ProfileComponent
+    ProfileComponent,
+    NewBurgerComponent
 
 ],
   imports: [

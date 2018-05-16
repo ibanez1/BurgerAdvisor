@@ -24,6 +24,7 @@ export class UserService {
   }
 
   removeOpinion(id) {
+    console.log(id)
     return this.http.delete(`${this.BASE_URL}/api/opinion/${id}`)
       .map((res) => res.json());
   }

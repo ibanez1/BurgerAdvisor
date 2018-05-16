@@ -11,6 +11,7 @@ const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cors = require('cors');
+const uploadCloud = require('../config/cloudinary.js');
 
 
 mongoose.Promise = Promise;
@@ -95,8 +96,5 @@ app.use('/api/favorite', require('./routes/extendedFavorite'));
 
 const Ratings = require('./models/Rating');
 app.use('/api/rating', require('./routes/extendedRating'));
-
-const Restaurant = require('./models/Restaurant');
-app.use('/api/restaurant', require('./routes/extendedRestaurant'));
 
 module.exports = app;

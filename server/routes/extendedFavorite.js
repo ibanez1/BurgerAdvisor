@@ -9,7 +9,6 @@ router.get('/user/:id', (req,res) => {
   Favorite.find({user:req.params.id})
   .populate('burger')
   .then(favorites => {
-    console.log(favorites)
     return res.json(favorites);
   })
 });

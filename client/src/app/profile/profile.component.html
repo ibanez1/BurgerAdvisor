@@ -5,25 +5,23 @@
   
   
     <div class="burger-info">
-      <!-- <h2> {{ this.user.username }}&nbsp;</h2> -->
      
-  
-  
-  
     <ul *ngFor="let opinion of opinions">
       <li>{{opinion.text}}</li>
-      <li>{{opinion.user}}</li>
+      <li>{{opinion.burger.title}}</li>
+      <a [routerLink]="['/burger',opinion.burger._id]"></a>
+      <img [src]="opinion.burger.imgPath" width=100/>
+      <button (click)="deleteOpinion(opinion)"> Delete </button>
+      
     </ul>
 
     <ul *ngFor="let favorite of favorites">
         <li>{{favorite.burger.title}}</li>
+        <a [routerLink]="['/burger',favorite.burger._id]"></a>
         <img [src]="favorite.burger.imgPath" width=100/>
-        
-        {{favorite.burger.restaurant}}
-       <!--  <img [src]="burger.imgPath" width=100/> -->
+        <button (click)="deleteFavorite(favorite)"> Delete </button>
     </ul>
-  
-    <!-- <button (click)="deletePhone()"> Delete </button> -->
-  
-  
+
   </div>
+
+  <app-new-burger></app-new-burger>
