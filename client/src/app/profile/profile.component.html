@@ -1,0 +1,25 @@
+<p>
+  profile works!
+</p>
+  <a [routerLink]="['']"> Back to list </a>
+  
+  
+    <div class="burger-info">
+      <!-- <h2> {{ this.user.username }}&nbsp;</h2> -->
+     
+  
+  
+  
+    <ul *ngFor="let opinion of opinions">
+      <li>{{opinion.text}}</li>
+      <li>{{opinion.user}}</li>
+    </ul>
+
+    <ul *ngFor="let favorite of favorites">
+        <li>{{favorite._id}}</li>
+    </ul>
+  
+    <!-- <button (click)="deletePhone()"> Delete </button> -->
+  
+  
+  </div>

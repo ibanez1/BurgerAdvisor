@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
 import { BurgerService } from '../services/burger.service';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-burger-list',
@@ -9,6 +10,7 @@ import { BurgerService } from '../services/burger.service';
   styleUrls: ['./burger-list.component.css']
 })
 export class BurgerListComponent implements OnInit {
+  user:any;
   burgers$:Observable<any>;
   burgers:Array<any> = [];
   path: string[] = ['burger'];

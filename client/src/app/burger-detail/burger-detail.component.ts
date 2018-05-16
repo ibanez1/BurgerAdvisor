@@ -5,6 +5,7 @@ import { BurgerService } from '../services/burger.service';
 import { OpinionService } from '../services/opinion.service';
 import { RatingService } from '../services/rating.service';
 import { SessionService } from '../services/session.service';
+import { FavoriteService} from '../services/favorite.service';
 import {HttpClient} from '@angular/common/http';
 import { BurgerMapComponent } from './burger-map/burger-map.component'
 
@@ -32,7 +33,8 @@ export class BurgerDetailComponent implements OnInit {
     private burgerService: BurgerService,
     private opinionService: OpinionService,
     private ratingService: RatingService,
-    public session: SessionService
+    public session: SessionService,
+    private favoriteService: FavoriteService
   ) { 
     route.params.subscribe(params => {
       burgerService.get(params.id).subscribe(burger => {
@@ -80,4 +82,11 @@ export class BurgerDetailComponent implements OnInit {
       this.refreshBurger();
     })
   }
+  saveFavorite(){
+    this.favoriteService.saveFavorite(this.burger._id, this.session.user._id)
+    .subscribe(()=>{
+      this.router.navigate(["/"]);
+      })
+
+}
 }

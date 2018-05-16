@@ -14,17 +14,8 @@
     <p> {{ burger.price }} </p>
     <p> {{ burger.rates | averageRating }}</p>
     
-
-    
-      <h4> Restaurants </h4>
-      <p> {{ burger.restaurants }}</p>
-      <p>add new Restaurant!</p>
-
-
-  </div>
-  <ul *ngFor="let restaurant of restaurants">
-    <li> {{restaurant.title}}</li>
-  </ul>
+    <button (click)="saveFavorite()"> Add to Favorites! </button>
+  
 
   <div>
     <input type= "number" [(ngModel)]="rating">

@@ -16,6 +16,10 @@ import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
 import { BurgerMapComponent } from './burger-detail/burger-map/burger-map.component'
 import { OpinionService } from './services/opinion.service';
 import { RatingService } from './services/rating.service';
+import { FavoriteService } from './services/favorite.service';
+import { UserService } from './services/user.service';
+import { ProfileComponent } from './profile/profile.component';
+
 import { AverageRatingPipe } from './pipes/averageRating.pipe';
 import { SearchBurgerPipe } from './pipes/searchBurger.pipe';
 import { SortBurgersPipe } from './pipes/sortBurgers.pipe';
@@ -23,6 +27,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { JsonpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -36,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AverageRatingPipe,
     SearchBurgerPipe,
     SortBurgersPipe,
-    
+    ProfileComponent
+
 ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     })
   ],
 
-  providers: [SessionService, BurgerService, OpinionService, RatingService],
+  providers: [SessionService, BurgerService, OpinionService, RatingService, FavoriteService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

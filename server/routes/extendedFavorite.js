@@ -11,8 +11,8 @@ router.get('/user/:id', (req,res) => {
 });
 
 router.post('/burger/:id', (req,res, next) => {
-  user = req.user._id
-  burger = req.params.id;
+  let user = req.body.user;
+  let burger = req.params.id;
   Favorite.create({user, burger})
   .then(favorite => res.json(favorite))
   .catch(e => next(e));
