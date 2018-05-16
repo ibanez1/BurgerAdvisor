@@ -2,6 +2,7 @@ const express = require("express");
 const _ = require("lodash");
 const passport = require("passport");
 
+
 const simpleCrud = Model => {
   const router = express.Router();
   /* const user = req.session.passport.user; */

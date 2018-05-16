@@ -1,3 +1,34 @@
 <p>
   new-burger works!
 </p>
+
+<button (click)="toggle()" id="bt">
+    {{buttonName}}
+  </button>
+<div *ngIf="show">
+
+    <form>
+        <fieldset>
+            <legend> Burger info </legend>
+            <label> Name* </label>
+    <input type="text" [(ngModel)]="newBurger.title" name="title" required />
+
+    <label> Description* </label>
+    <input type="text" [(ngModel)]="newBurger.description" name="description" required />
+
+    <label> Price* </label>
+    <input type="number" [(ngModel)]="newBurger.price" name="price" required />
+    
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+
+    <label> Restaurant* </label>
+    <input type="text" [(ngModel)]="newBurger.restaurant" name="restaurant" required />
+
+      </fieldset>
+      <button (click)="submit()"> submit </button>
+    </form>
+
+    <p> {{ feedback }} </p>
+
+
+    <!-- <button (click)="addBurger($event, newBurger.title,newBurger.description,newBurger.image, )">Submit New Burger</button> -->

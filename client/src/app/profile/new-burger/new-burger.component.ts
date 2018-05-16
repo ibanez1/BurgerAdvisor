@@ -4,6 +4,8 @@ import { BurgerService } from '../../services/burger.service';
 import {Observable} from 'rxjs/Observable';
 import { SessionService } from '../../services/session.service';
 import { UserService } from '../../services/user.service';
+import { FileUploader } from "ng2-file-upload";
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-new-burger',
@@ -11,24 +13,42 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./new-burger.component.css']
 })
 export class NewBurgerComponent implements OnInit {
+  uploader: FileUploader = new FileUploader({
+    url: `${environment.BASEURL}/api/burger/new`
+  });
 
-  user: any;
-  burger: any;
+  newBurger = {
+    title: '',
+    description: '',
+    price: '',
+    rates: [],
+    restaurant: ''
+  };
+  
+  feedback: string;
 
   constructor(
-    
-    route: ActivatedRoute,
-    public router: Router,
-    private burgerService: BurgerService,
-    public session: SessionService,
-    private userService: UserService
-  ) { 
-    session.isLoggedIn().subscribe(u => {
-      this.user = u
-    })
-  }
+  ) { }
 
   ngOnInit() {
+
+   
+  }
+  submit() {
+    this.uploader.onBuildItemForm = (item, form) => {
+      form.append('title', this.newBurger.title);
+      form.append('description', this.newBurger.description);
+      form.append('price', this.newBurger.price)
+      form.append('restaurant', this.newBurger.restaurant);
+    };
+
+    this.uploader.uploadAll();
   }
 
+
+  public show:boolean = false;
+  public buttonName = 'Add new Burger!';
+  toggle() {
+    this.show = !this.show;
+  }
 }

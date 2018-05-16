@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const Schema = mongoose.Schema;
+const upload = require('../config/multer');
 
 const burgerSchema = new Schema(
   {
@@ -8,8 +9,8 @@ const burgerSchema = new Schema(
     description: String,
     price: Number,
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    imgName: String,
-    imgPath: String,
+    /* imgName: String, */
+    image: String,
     restaurant: String,
     rates: Array
     

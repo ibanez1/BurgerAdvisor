@@ -28,6 +28,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { JsonpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileSelectDirective } from "ng2-file-upload";
 
 
 
@@ -43,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchBurgerPipe,
     SortBurgersPipe,
     ProfileComponent,
-    NewBurgerComponent
+    NewBurgerComponent,
+    FileSelectDirective
 
 ],
   imports: [

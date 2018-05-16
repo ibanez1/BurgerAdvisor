@@ -11,7 +11,7 @@ const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cors = require('cors');
-const uploadCloud = require('../config/cloudinary.js');
+
 
 
 mongoose.Promise = Promise;
@@ -86,7 +86,7 @@ const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
 const Burger = require('./models/Burger');
-app.use('/api/burger', require('./routes/crud')(Burger));
+app.use('/api/burger', require('./routes/extendedBurger'));
 
 const Opinion = require('./models/Opinion');
 app.use('/api/opinion', require('./routes/extendedOpinion'));
