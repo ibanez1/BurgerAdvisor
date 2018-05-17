@@ -1,8 +1,26 @@
-.searchBar{
-  font-size:3em;
+body {
+  background-image: url('../images/burgerback.jpg');
 }
 
-.filter{
-
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-style: solid;
 }
+
+.sort{
+  border-style: groove;
+  color: #003300;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.img-responsive{
+  width: 100%;
+}
+
+
+
 

@@ -13,7 +13,7 @@ module.exports = [
     description: "Carne de vaca, costillas de cerdo deshuesadas en salsa Barbacoa Goiko, dos niveles de queso americano, cebolla a la plancha y lechuga batavia",
     price: 15,
     imgName: "Goiko Pic",
-    imgPath: "http://www.bfacemag.es/wp-content/uploads/2016/09/portadababyyankee-800x532.png",
+    imgPath: "https://www.goikogrill.com/wp-content/uploads/2017/03/GOIKO_GRILL_WEB-8-2.jpg",
     restaurant: "Goiko Grill",
     rates: Array
   },

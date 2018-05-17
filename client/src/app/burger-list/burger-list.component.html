@@ -1,33 +1,39 @@
-
+<section>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 serachBar glyphicon glyphicon-search">
       <label for="burger_title"> Search Burger: </label>
-      <input size="45" id="burger_title" placeholder="burger name" type="text" [(ngModel)]="pattern">
+      <input size="45" id="burger-search" placeholder="burger name" type="text" [(ngModel)]="pattern">
     </div>
   </div>
 </div>
+</section>
 
-
+<section>
 <div class="container">
   <div class="row">
     <div class="container">
-      <div class="col-xs-12">
-      <a href (click)="sortTable('price')">Sort by Price!</a>
-      <a href (click)="sortTable('rates')">Sort by Rate!</a>
-    </div>
+      <div class="col-xs-6">
+           <a class="sort" href (click)="sortTable('price')">Sort by Price!</a>
+      </div>
+      <div class="col-xs-6">
+           <a class="sort" href (click)="sortTable('rates')">Sort by Rate!</a>
+      </div>
     </div>
   </div>
 </div>
-
-
+<div>
+</div>
+</section>
+<br/> 
+<section>
 <div class="container">
   <div class="row">
-   <div class="col-sm-8"
+   <div class="col-sm-6 burgers"
      *ngFor="let burger of burgers | searchBurger:'title': pattern | sortBurgers:path:order">
 
-    <a [routerLink]="['/burger',burger._id]">
-      <img [src]="burger.imgPath" width=100/>
+    <a class="img" [routerLink]="['/burger',burger._id]">
+      <img class='img-responsive' [src]="burger.imgPath" width=100/>
     </a>
     <h3> {{ burger.title }} </h3>
     <p> {{ burger.description }} </p>
@@ -36,3 +42,4 @@
   </div>
   </div>
 </div>
+</section>
