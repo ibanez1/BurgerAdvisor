@@ -1,7 +1,7 @@
-<p>
-  burger-list works!
-</p>
+
 <a [routerLink]="['/profile']">Perfil</a>
+
+<h3>The burger list</h3>
 <div>
     <label for="burger_title"> Search Burger: </label>
     <input id="burger_title" placeholder="burger name"
@@ -19,7 +19,7 @@
     </a>
     <h3> {{ burger.title }} </h3>
     <p> {{ burger.description }} </p>
-    <p> {{ burger.price }} </p>
-    <p> {{ burger.rates | averageRating }} </p>
+    <p> price: {{ burger.price }} </p>
+    <p> rating: {{ burger.rates | averageRating }} </p>
   </div>
 </div>

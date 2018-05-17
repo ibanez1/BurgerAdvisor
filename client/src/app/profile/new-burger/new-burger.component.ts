@@ -14,13 +14,13 @@ import { environment } from '../../../environments/environment'
 })
 export class NewBurgerComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `${environment.BASEURL}/api/burger/new`
+    url: `${environment.BASEURL}/api/burger/new/`
   });
 
   newBurger = {
     title: '',
     description: '',
-    price: '',
+    price: 0,
     rates: [],
     restaurant: ''
   };
@@ -31,15 +31,17 @@ export class NewBurgerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
    
   }
+  
   submit() {
+
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('title', this.newBurger.title);
       form.append('description', this.newBurger.description);
       form.append('price', this.newBurger.price)
       form.append('restaurant', this.newBurger.restaurant);
+      console.log(item, form)
     };
 
     this.uploader.uploadAll();

@@ -1,19 +1,20 @@
 const crud = require('./crud');
 const Burger = require('../models/Burger');
-const upload = require('../config/multer');
 const _ = require("lodash");
+const uploadCloud = require('../config/cloudinary.js');
 
 const router = crud(Burger);
 
   // Create
-  router.post('/new', upload.single('file'), function(req, res) {
+  router.post('/new', uploadCloud.single('file'), function(req, res) {
+    console.log(1)
     console.log(req.body);
     console.log(req.file);
     const burger = new Burger({
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      image: `/uploads/${req.file.filename}`,
+      imgPath: req.file.url,
       restaurant: req.body.restaurant,
       rates: []
     });
