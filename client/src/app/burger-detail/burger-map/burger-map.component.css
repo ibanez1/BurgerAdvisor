@@ -1,3 +1,8 @@
+.map{
+  margin:5%;
+
+}
+
 agm-map {
   height: 300px;
 }

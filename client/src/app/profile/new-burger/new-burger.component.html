@@ -1,29 +1,33 @@
 
-<button (click)="toggle()" id="bt">
+<button class="btn2" (click)="toggle()" id="bt">
     {{buttonName}}
   </button>
 <div *ngIf="show">
 
+<div class="row" class="new">
+    <div class="col-xs-12">
     <form>
         <fieldset>
             <legend> Burger info </legend>
-            <label> Name* </label>
-    <input type="text" [(ngModel)]="newBurger.title" name="title" required />
-
-    <label> Description* </label>
-    <input type="text" [(ngModel)]="newBurger.description" name="description" required />
-
-    <label> Price* </label>
-    <input type="number" [(ngModel)]="newBurger.price" name="price" required />
-    
-    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-
-    <label> Restaurant* </label>
-    <input type="text" [(ngModel)]="newBurger.restaurant" name="restaurant" required />
+                <label> Name* </label>
+                 <input type="text" [(ngModel)]="newBurger.title" name="title" required />
+                <br>
+                <label> Description* </label>
+                <input type="text" [(ngModel)]="newBurger.description" name="description" required />
+                <br>
+                <label> Price* </label>
+                 <input type="number" [(ngModel)]="newBurger.price" name="price" required />
+                <br>
+                  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+                <br>
+                 <label> Restaurant* </label>
+               <input type="text" [(ngModel)]="newBurger.restaurant" name="restaurant" required />
 
       </fieldset>
-      <button (click)="submit()"> submit </button>
+      <button class="btn" (click)="submit()"> submit </button>
     </form>
+    </div>
+</div>
 
     <p> {{ feedback }} </p>
 

@@ -2,24 +2,30 @@
   <a [routerLink]="['']"> Back to list </a>
   
   
-    <div class="burger-info">
-     
+ <div class="row">
+  <div class="col-sm-6" class="burgers">
+    <h3 class="glyphicon glyphicon-flash">Your Opinions: </h3>
     <ul *ngFor="let opinion of opinions">
       <li>{{opinion.text}}</li>
       <li>{{opinion.burger.title}}</li>
       <a [routerLink]="['/burger',opinion.burger._id]"></a>
       <img [src]="opinion.burger.imgPath" width=100/>
       <button (click)="deleteOpinion(opinion)"> Delete </button>
-      
     </ul>
+  </div>
+</div>
 
+
+<div class="row">
+  <div class="col-sm-6" class="burgers">
+    <h3 class="glyphicon glyphicon-thumbs-up">  Your Favorites: </h3>
     <ul *ngFor="let favorite of favorites">
         <li>{{favorite.burger.title}}</li>
         <a [routerLink]="['/burger',favorite.burger._id]"></a>
         <img [src]="favorite.burger.imgPath" width=100/>
         <button (click)="deleteFavorite(favorite)"> Delete </button>
     </ul>
-
   </div>
+</div>
 
   <app-new-burger></app-new-burger>

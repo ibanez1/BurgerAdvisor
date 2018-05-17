@@ -1,29 +1,24 @@
 <section>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 serachBar glyphicon glyphicon-search">
-      <label for="burger_title"> Search Burger: </label>
-      <input size="45" id="burger-search" placeholder="burger name" type="text" [(ngModel)]="pattern">
+    <div class="row">
+      <div class="col-xs-12 serachBar glyphicon glyphicon-search">
+        <label for="burger_title"> Search Burger: </label>
+        <input size="45" id="burger_title" placeholder="burger name" type="text" [(ngModel)]="pattern">
+      </div>
     </div>
   </div>
-</div>
 </section>
-
 <section>
 <div class="container">
   <div class="row">
-    <div class="container">
       <div class="col-xs-6">
-           <a class="sort" href (click)="sortTable('price')">Sort by Price!</a>
+           <a class="sort" href (click)="sortTable('price')"> Sort by Price! </a>
       </div>
       <div class="col-xs-6">
-           <a class="sort" href (click)="sortTable('rates')">Sort by Rate!</a>
+           <a class="sort" href (click)="sortTable('rates')"> Sort by Rate! </a>
       </div>
     </div>
   </div>
-</div>
-<div>
-</div>
 </section>
 <br/> 
 <section>
@@ -37,8 +32,10 @@
     </a>
     <h3> {{ burger.title }} </h3>
     <p> {{ burger.description }} </p>
-    <p> price: {{ burger.price }} </p>
-    <p> rating: {{ burger.rates | averageRating }} </p>
+    <p class="price"> price: € {{ burger.price }} </p>
+    <p class="rating glyphicon glyphicon-heart-empty"> rating: {{ burger.rates | averageRating }} / 5 </p>
+    <br>
+    <br>
   </div>
   </div>
 </div>

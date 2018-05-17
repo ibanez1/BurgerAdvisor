@@ -1,28 +1,35 @@
 
 <a [routerLink]="['']"> Back to list </a>
-<a [routerLink]="['/profile']">Profile</a>
 
-<div *ngIf="burger">
-  <div class="burger-detail">
-    <img height="300" [src]="burger.imgPath" />
+
+ <div *ngIf="burger">
+   <div class="col-xs-12 burger">
+     <div class="burger-detail">
+      <img class="img-responsive" height="300" [src]="burger.imgPath" />
+     </div>
+
+    <div class="burger-info">
+       <h2> {{ burger.title }}&nbsp;</h2>
+        <h3> {{ burger.description }} </h3>
+        <p class="price"> price: € {{ burger.price }} </p>
+        <p class="rating"> {{ burger.rates | averageRating }} / 5</p>
+    </div>
   </div>
 
-  <div class="burger-info">
-    <h2> {{ burger.title }}&nbsp;</h2>
-    <h3> {{ burger.description }} </h3>
-    <p> {{ burger.price }} </p>
-    <p> {{ burger.rates | averageRating }}</p>
+  <div class="row">
+    <div class="col-sm-6">
+    <button  class ="btn" (click)="saveFavorite()"> Add to Favorites! </button>
   </div>
-  
-    <button (click)="saveFavorite()"> Add to Favorites! </button>
-  
-  
-  <div>
-    <input type= "number" [(ngModel)]="rating" min="1" max="5">
+</div>
+<div class="row">
+  <div class="col-xs-12" class="rating-vote">
+    <input  class="input-value" type= "number" [(ngModel)]="rating" min="1" max="5">
     <button (click)="saveRating()"> Save Rating </button>
   </div>
+</div> 
 
-
+<div class="row opinion">
+  <div class="col-sm-6">
   <h3>Opinions!</h3>
   <ul *ngFor="let opinion of opinions">
 
@@ -31,12 +38,15 @@
       {{opinion.created_at | date:'dd/MM/yyyy'}}
     </li>
   </ul>
-
-  <!-- <button (click)="deletePhone()"> Delete </button> -->
- 
-    <textarea name="" id="" cols="50" rows="3" [(ngModel)]="opinion" placeholder="Your Opinion Here!"></textarea>
-    <button (click)="saveOpinion()"> Save Opinion </button>
   </div>
+</div>  
+
+ <div class="row">
+   <div class="col-sm-6">
+    <textarea class="text-area" name="" id="" cols="50" rows="3" [(ngModel)]="opinion" placeholder="Your Opinion Here!"></textarea>
+    <button class="btn2" (click)="saveOpinion()"> Save Opinion </button>
+  </div>
+</div> 
 
 
 
