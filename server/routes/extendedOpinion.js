@@ -17,6 +17,7 @@ router.get('/user/:id', (req,res) => {
 
 router.get('/burger/:id', (req,res) => {
   Opinion.find({burger:req.params.id})
+  .populate('user')
   .then(opinions => {
     return res.json(opinions);
   })

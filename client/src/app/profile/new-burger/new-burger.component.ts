@@ -33,6 +33,12 @@ export class NewBurgerComponent implements OnInit {
   ngOnInit() {
    
   }
+
+  public show:boolean = false;
+  public buttonName = 'Add new Burger!';
+  toggle() {
+    this.show = !this.show;
+  }
   
   submit() {
 
@@ -45,12 +51,10 @@ export class NewBurgerComponent implements OnInit {
     };
 
     this.uploader.uploadAll();
+    this.toggle()
+    alert('Added new Burger!')
   }
 
 
-  public show:boolean = false;
-  public buttonName = 'Add new Burger!';
-  toggle() {
-    this.show = !this.show;
-  }
+ 
 }

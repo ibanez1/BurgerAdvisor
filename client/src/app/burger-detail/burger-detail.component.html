@@ -1,7 +1,6 @@
-<p>
-  burger-detail works!
-</p>
+
 <a [routerLink]="['']"> Back to list </a>
+<a [routerLink]="['/profile']">Profile</a>
 
 <div *ngIf="burger">
   <div class="burger-detail">
@@ -13,28 +12,33 @@
     <h3> {{ burger.description }} </h3>
     <p> {{ burger.price }} </p>
     <p> {{ burger.rates | averageRating }}</p>
-    
+  </div>
+  
     <button (click)="saveFavorite()"> Add to Favorites! </button>
   
-
+  
   <div>
-    <input type= "number" [(ngModel)]="rating">
+    <input type= "number" [(ngModel)]="rating" min="1" max="5">
     <button (click)="saveRating()"> Save Rating </button>
   </div>
 
 
+  <h3>Opinions!</h3>
   <ul *ngFor="let opinion of opinions">
-    <li>{{opinion.text}}</li>
+
+    <li>{{opinion.user.username}} :
+      {{opinion.text}}
+      {{opinion.created_at | date:'dd/MM/yyyy'}}
+    </li>
   </ul>
 
   <!-- <button (click)="deletePhone()"> Delete </button> -->
-
-  <div>
-    <input [(ngModel)]="opinion">
+ 
+    <textarea name="" id="" cols="50" rows="3" [(ngModel)]="opinion" placeholder="Your Opinion Here!"></textarea>
     <button (click)="saveOpinion()"> Save Opinion </button>
   </div>
 
-</div>
+
 
 <app-burger-map></app-burger-map>
 

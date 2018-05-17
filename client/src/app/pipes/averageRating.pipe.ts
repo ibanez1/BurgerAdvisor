@@ -8,7 +8,8 @@ export class AverageRatingPipe implements PipeTransform {
   transform(items: any): any {
     let sum = items.reduce((a, b) => a + b, 0);
     let avg = sum / items.length;
-    return avg
+    let avgFixed = avg.toFixed(2)
+    return avgFixed
 }
 
 }

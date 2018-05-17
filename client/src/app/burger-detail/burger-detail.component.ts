@@ -63,6 +63,7 @@ export class BurgerDetailComponent implements OnInit {
   refreshRatings(){
     this.ratingService.getRating(this.burger._id).subscribe(ratings => {
       this.ratings = ratings;
+      
     })
   }
 
@@ -72,6 +73,7 @@ export class BurgerDetailComponent implements OnInit {
     this.opinionService.saveOpinion(this.burger._id,this.opinion, this.session.user._id)
     .subscribe(() =>{
       this.refreshOpinions();
+      alert('Thank you for your opinion!')
     });
     this.opinion = "";
   }
@@ -80,12 +82,15 @@ export class BurgerDetailComponent implements OnInit {
     .subscribe(()=>{
       this.refreshRatings();
       this.refreshBurger();
+      alert('Thank you for your rating!')
     })
+    this.rating = "";
   }
   saveFavorite(){
     this.favoriteService.saveFavorite(this.burger._id, this.session.user._id)
     .subscribe(()=>{
       this.refreshBurger();
+      alert('Added to your favorites!')
       })
 
 }
