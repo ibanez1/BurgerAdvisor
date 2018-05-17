@@ -1,18 +1,30 @@
 
-<a [routerLink]="['/profile']">Profile</a>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 serachBar glyphicon glyphicon-search">
+      <label for="burger_title"> Search Burger: </label>
+      <input size="45" id="burger_title" placeholder="burger name" type="text" [(ngModel)]="pattern">
+    </div>
+  </div>
+</div>
 
-<h3>The burger list</h3>
-<div>
-    <label for="burger_title"> Search Burger: </label>
-    <input id="burger_title" placeholder="burger name"
-            type="text" [(ngModel)]="pattern">
-<div>
 
-    <a href (click)="sortTable('price')">Sort by Price!</a>
-    <a href (click)="sortTable('rates')">Sort by Rate!</a>
+<div class="container">
+  <div class="row">
+    <div class="container">
+      <div class="col-xs-12">
+      <a href (click)="sortTable('price')">Sort by Price!</a>
+      <a href (click)="sortTable('rates')">Sort by Rate!</a>
+    </div>
+    </div>
+  </div>
+</div>
 
-<div>
-  <div class="burger" *ngFor="let burger of burgers | searchBurger:'title': pattern | sortBurgers:path:order">
+
+<div class="container">
+  <div class="row">
+   <div class="col-sm-8"
+     *ngFor="let burger of burgers | searchBurger:'title': pattern | sortBurgers:path:order">
 
     <a [routerLink]="['/burger',burger._id]">
       <img [src]="burger.imgPath" width=100/>
@@ -21,5 +33,6 @@
     <p> {{ burger.description }} </p>
     <p> price: {{ burger.price }} </p>
     <p> rating: {{ burger.rates | averageRating }} </p>
+  </div>
   </div>
 </div>

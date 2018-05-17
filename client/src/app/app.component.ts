@@ -7,12 +7,12 @@ import { SessionService } from './services/session.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'a place for all burgers...';
   constructor(public sessionService:SessionService){
     this.sessionService.userEvent.subscribe( user => {
       console.log("USER EVENT");
       if(user){
-        this.title = `HOLA ${user.username}`;
+        this.title = `${user.username}`;
       }else{
         this.title = "Login!";
       }

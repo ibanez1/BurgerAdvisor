@@ -1,15 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-5">
+      <img class="logo" src="http://hudsonburger.co/wp-content/uploads/2017/10/HUDSON-BURGER-Logo-Favicon-single.png" alt="burgerLogo">
+    </div>
+    <div class="col-xs-7">
+      <h1 class="title text-left" >Burger Advisor</h1>
+        <h5 class="welcome text-left">Welcome Burger Lover!</h5>
+      </div>
+  </div>
+</div>
 
 <div *ngIf="!sessionService.user">
-  <app-login-form></app-login-form>
-</div>
+    <app-login-form></app-login-form>
+  </div>
+
 
 <div *ngIf="sessionService.user">
-  <h2>Welcome Burger Lover</h2>
-  <button (click)="sessionService.logout().subscribe()"> Logout </button>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 ">
+        <h5 class="text-cen align-top">{{title}}</h5>
+      </div>
+      <div class="col-xs-3 ">
+        <a [routerLink]="['/profile']" class="glyphicon glyphicon-user">Profile</a>
+      </div>
+      <div class="col-xs-3">
+        <button class="log-out" (click)="sessionService.logout().subscribe()"> Logout </button>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 
