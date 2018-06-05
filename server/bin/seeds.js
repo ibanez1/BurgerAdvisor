@@ -5,8 +5,8 @@ const Burger = require('../models/Burger');
 const data = require('./data');
 
 const dbURL = process.env.MONGO_URL;
-
-mongoose.connect(dbURL)
+console.log(dbURL)
+mongoose.connect('mongodb://localhost/BurgerAdvisor')
 .then(() =>{
     console.log(`Connected to db ${dbURL}`);
     Burger.collection.drop();
